@@ -1,7 +1,14 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import { Flex } from "@chakra-ui/react";
+import Folder from "./icons/Folder";
+import Bell from "./icons/Bell";
+import Pill from "./components/Pill";
+import User from "./icons/User";
+import { useState } from "react";
 
 export default function Home() {
+  const [selection, setSelection] = useState(0);
   return (
     <div className={styles.container}>
       <Head>
@@ -9,57 +16,45 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Flex
+        bg="#fff"
+        boxShadow="0px 6px 24px 2px rgba(0,0,0,0.14)"
+        w="auto"
+        h="52px"
+        justify="center"
+        align="center"
+        borderRadius="full"
+      >
+        <Pill
+          isOpen={selection === 0}
+          label={"Files"}
+          index={0}
+          setSelection={setSelection}
+          w="40px"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+          <Folder isOpen={selection === 0} />
+        </Pill>
+
+        <Pill
+          isOpen={selection === 1}
+          label="Notifications"
+          index={1}
+          setSelection={setSelection}
+          w="108px"
+        >
+          <Bell isOpen={selection === 1} />
+        </Pill>
+
+        <Pill
+          isOpen={selection === 2}
+          label="Profile"
+          index={2}
+          setSelection={setSelection}
+          w="56px"
+        >
+          <User isOpen={selection === 2} />
+        </Pill>
+      </Flex>
     </div>
-  )
+  );
 }

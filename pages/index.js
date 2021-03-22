@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Resizable Tabs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -27,7 +27,7 @@ export default function Home() {
       >
         <Pill
           isOpen={selection === 0}
-          label={"Files"}
+          label="Files"
           index={0}
           setSelection={setSelection}
           w="40px"

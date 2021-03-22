@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import { Flex } from "@chakra-ui/react";
 import Folder from "./icons/Folder";
 import Bell from "./icons/Bell";
-import Pill from "./components/Pill";
+import ResizableTab from "./components/Tab";
 import User from "./icons/User";
 import { useState } from "react";
 
@@ -25,7 +25,7 @@ export default function Home() {
         align="center"
         borderRadius="full"
       >
-        <Pill
+        <ResizableTab
           isOpen={selection === 0}
           label="Files"
           index={0}
@@ -33,9 +33,9 @@ export default function Home() {
           w="40px"
         >
           <Folder isOpen={selection === 0} />
-        </Pill>
+        </ResizableTab>
 
-        <Pill
+        <ResizableTab
           isOpen={selection === 1}
           label="Notifications"
           index={1}
@@ -43,9 +43,9 @@ export default function Home() {
           w="108px"
         >
           <Bell isOpen={selection === 1} />
-        </Pill>
+        </ResizableTab>
 
-        <Pill
+        <ResizableTab
           isOpen={selection === 2}
           label="Profile"
           index={2}
@@ -53,7 +53,7 @@ export default function Home() {
           w="56px"
         >
           <User isOpen={selection === 2} />
-        </Pill>
+        </ResizableTab>
       </Flex>
     </div>
   );

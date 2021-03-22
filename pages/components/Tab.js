@@ -9,7 +9,7 @@ const MotionText = motion(Text);
   the elegant way would be calculating the width ofthe text before
   rendering it with element.getBoundingClientRect() or something alike 
 */
-export default function Pill({
+export default function ResizableTab({
   isOpen,
   label,
   setSelection,
@@ -60,6 +60,9 @@ export default function Pill({
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
+        {/* AnimatePresence is necessary because the text has to be
+          removed from the DOM and can't just be hidden      
+      */}
         <AnimatePresence>
           {isOpen && (
             <MotionText

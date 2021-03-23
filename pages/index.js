@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import Folder from "./icons/Folder";
 import Bell from "./icons/Bell";
 import ResizableTab from "./components/Tab";
@@ -16,14 +16,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Box display={["block", "none"]} h="91vh" />
       <Flex
         bg="#fff"
         boxShadow="0px 6px 24px 2px rgba(0,0,0,0.14)"
-        w="auto"
-        h="52px"
+        w={["100vw", "auto"]}
+        h={["auto", "52px"]}
         justify="center"
-        align="center"
-        borderRadius="full"
+        align={["center"]}
+        borderRadius={["0", "full"]}
       >
         <ResizableTab
           isOpen={selection === 0}
@@ -54,6 +55,8 @@ export default function Home() {
         >
           <User isOpen={selection === 2} />
         </ResizableTab>
+
+        <Box display={["block", "none"]} h="70px" />
       </Flex>
     </div>
   );

@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Resizable Tabs by Rodrigo</title>
+        <title>Tabs by Rodrigo</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
